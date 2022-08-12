@@ -5,12 +5,14 @@ window.addEventListener("load", function(){
         response.json().then( function(json){
             /* console.log(json);
             console.log(json.length); */
+            const numAstros = document.getElementById("astroCount");
+            numAstros.innerHTML = `<h2>There are ${json.length} astronauts</h2>`;
             json.sort((a, b) => {
                 return b.hoursInSpace - a.hoursInSpace;
             });
             const destination = document.getElementById("container");
             for (let index = 0; index < json.length; index++) {
-                temp = '';
+                temp = 'id=offRoster';
                 if (json[index].active === true) {
                     temp = "id=onRoster";
                 }
@@ -20,7 +22,7 @@ window.addEventListener("load", function(){
                             <h3>${json[index].firstName} ${json[index].lastName}</h3>
                             <ul>
                                 <li>Hours in space: ${json[index].hoursInSpace}</li>
-                                <li ${temp}>Active: ${json[index].active}</li>
+                                <li>Active: <span ${temp}>${json[index].active}</span></li>
                                 <li>Skills: ${json[index].skills}</li>
                             </ul>
                         </div>

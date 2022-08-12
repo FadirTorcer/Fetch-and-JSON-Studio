@@ -17,4 +17,10 @@
 
 #onRoster {
     color: green;
+    font-weight: bold;
+}
+
+#offRoster {
+    color: firebrick;
+    font-weight: bold;
 }
