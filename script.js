@@ -7,7 +7,7 @@ window.addEventListener("load", function(){
             console.log(json.length); */
             const destination = document.getElementById("container");
             for (let index = 0; index < json.length; index++) {
-                destination.innerHTML = `
+                destination.innerHTML += `
                     <div class="astronaut">
                         <div class="bio">
                             <h3>${json[index].firstName} ${json[index].lastName}</h3>
