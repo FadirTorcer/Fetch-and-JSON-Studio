@@ -10,13 +10,17 @@ window.addEventListener("load", function(){
             });
             const destination = document.getElementById("container");
             for (let index = 0; index < json.length; index++) {
+                temp = '';
+                if (json[index].active === true) {
+                    temp = "id=onRoster";
+                }
                 destination.innerHTML += `
                     <div class="astronaut">
                         <div class="bio">
                             <h3>${json[index].firstName} ${json[index].lastName}</h3>
                             <ul>
                                 <li>Hours in space: ${json[index].hoursInSpace}</li>
-                                <li>Active: ${json[index].active}</li>
+                                <li ${temp}>Active: ${json[index].active}</li>
                                 <li>Skills: ${json[index].skills}</li>
                             </ul>
                         </div>
